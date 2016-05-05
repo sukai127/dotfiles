@@ -1,0 +1,43 @@
+[user]
+	name = SuXiaokai
+	email = sukai.snake@gmail.com
+[core]
+	excludesfile = /Users/ksu/.gitignore_global
+	editor = vim
+[alias]
+	a  = add -p
+	ap = add -p
+	s  = status -sb
+	st = status
+	ci = commit
+	cm = commit -m
+	cv = commit -v
+	ca = commit --amend
+	cav= commit -av
+	co = checkout
+	cp = checkout -p
+	br = branch
+	d  = diff
+	di = diff
+	dif= diff
+	ds = diff --stat
+	dc = diff --cached
+	fa = fetch --all
+	pr = pull --rebase
+	ps = push
+	pp = !git pr && git ps
+	rc = rebase --continue
+	ri = rebase --interactive
+	rcontinue = rebase --continue
+	rs = rebase --skip
+	rskip = rebase --skip
+	rabort = rebase --abort
+	recover = reset --hard
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	g = grep --break --heading --line-number
+	la = log --oneline --graph --decorate --all
+[push]
+	default = simple
+[merge]
+	tool = vimdiff
