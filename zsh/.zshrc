@@ -94,6 +94,7 @@ alias ssh_vkrms=/usr/local/script/vkrms.sh
 alias subl='open -a "Sublime Text 2"'
 alias tomcat_shutdown=shutdown.sh
 alias tomcat_start=startup.sh
+alias ssh_aws='ssh 52.10.255.144'
 alias vpncon='/Users/ksu/Documents/twvpn/vpn connect '
 alias vpndis='/Users/ksu/Documents/twvpn/vpn disconnect '
 
