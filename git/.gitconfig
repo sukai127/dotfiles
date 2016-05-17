@@ -1,8 +1,8 @@
 [user]
-	name = SuXiaokai
+	name = SuXiaoKai
 	email = sukai.snake@gmail.com
 [core]
-	excludesfile = /Users/ksu/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	editor = vim
 [alias]
 	a  = add -p

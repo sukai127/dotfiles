@@ -90,7 +90,6 @@ alias h=http
 alias mysql=/usr/local/script/mysql.sh
 alias psql='psql trailblazers'
 alias ssh_ctrip='ssh twer@10.202.5.24'
-alias ssh_vkrms=/usr/local/script/vkrms.sh
 alias subl='open -a "Sublime Text 2"'
 alias tomcat_shutdown=shutdown.sh
 alias tomcat_start=startup.sh
