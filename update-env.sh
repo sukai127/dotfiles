@@ -1,6 +1,5 @@
 #!/bin/bash
 
-current_dir=`dirname $0`
 flag_file=.have_been_updated.flag
 
 function error_exit()
@@ -40,29 +39,30 @@ function have_been_updated()
 }
 function update_git()
 {
-	echo git config --global include.path ${current_dir}/git/.gitconfig
-	git config --global include.path ${current_dir}/git/.gitconfig
-	echo ln -sf ${current_dir}/git/.gitignore_global ~/.gitignore_global
-	ln -sf ${current_dir}/git/.gitignore_global ~/.gitignore_global
+	echo git config --global include.path `pwd`/git/.gitconfig
+	git config --global include.path `pwd`/git/.gitconfig
+	echo ln -sf `pwd`/git/.gitignore_global ~/.gitignore_global
+	ln -sf `pwd`/git/.gitignore_global ~/.gitignore_global
 }
 
 function update_vim()
 {
 	if [[ -f ~/.vimrc ]]; then
-		echo add "source ${current_dir}/vim/.vimrc" to ~/.vimrc
-		echo "source ${current_dir}/vim/.vimrc" >> ~/.vimrc
+		echo add "source `pwd`/vim/.vimrc" to ~/.vimrc
+		echo "source `pwd`/vim/.vimrc" >> ~/.vimrc
 	else
-		echo ln -sf ${current_dir}/vim/.vimrc ~/.vimrc
-		ln -sf ${current_dir}/vim/.vimrc ~/.vimrc
+		echo ln -sf `pwd`/vim/.vimrc ~/.vimrc
+		ln -sf `pwd`/vim/.vimrc ~/.vimrc
 	fi
 }
 
 function update_zsh()
 {
-	if [[ -d ~/.oh-my-zsh ]]; then
+	if [[ ! -d ~/.oh-my-zsh ]]; then
 		sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 	fi
 	sed -i -- 's/robbyrussell/tjkirch_mod/' ~/.zshrc
+	source ~/.zshrc
 }
 
 # check environment status
