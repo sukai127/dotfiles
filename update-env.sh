@@ -66,7 +66,7 @@ function update_zsh()
 }
 
 # check environment status
-[[ -f ~/${flag_file} ]] && warning "All environment have been update"; exit 0
+[[ -f ~/${flag_file} ]] && error_exit "All environment have been update."
 which git > /dev/null || error_exit "Please install git on your system."
 which zsh > /dev/null || error_exit "Please install zsh on your system."
 
