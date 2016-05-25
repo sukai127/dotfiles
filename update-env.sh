@@ -1,29 +1,38 @@
 #!/bin/bash
 
-flag_file=.have_been_updated.flag
+FLAG_FILE=.have_been_updated.flag
+CWD=`(cd "$(dirname $0)" && pwd)`
 
 function error_exit()
 {
-		error $*
-    exit 1
+	error $*
+	exit 1
+}
+
+function warning_exit()
+{
+	warning $*
+	exit 0
 }
 
 function error()
 {
-    printf "\e[41m\e[30mERROR:\e[0m $*\n"
+	printf "\e[41m\e[30mERROR:\e[0m $*\n"
 }
+
 function warning()
 {
-    printf "\e[43m\e[30mWARNING:\e[0m $*\n"
+	printf "\e[43m\e[30mWARNING:\e[0m $*\n"
 }
 
 function info()
 {
-    printf "\e[44m\e[30mINFO:\e[0m $*\n"
+	printf "\e[44m\e[30mINFO:\e[0m $*\n"
 }
 
-function system_type()
+function which_system()
 {
+	echo "Check system type......"
 	if [ "$(uname)" == 'Darwin' ]; then
 		OS='Mac'
 	elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
@@ -31,42 +40,46 @@ function system_type()
 	else
 		error_exit "Your platform ($(uname -a)) is not supported."
 	fi
+	echo "Yours system is $OS"
 }
 
 function have_been_updated()
 {
-	echo "Must not remove this file, only if you want crash system." >> ~/${flag_file}
+	echo "Must not remove this file, only if you want crash system." >> ~/${FLAG_FILE}
 }
+
 function update_git()
 {
-	echo git config --global include.path `pwd`/git/.gitconfig
-	git config --global include.path `pwd`/git/.gitconfig
-	echo ln -sf `pwd`/git/.gitignore_global ~/.gitignore_global
-	ln -sf `pwd`/git/.gitignore_global ~/.gitignore_global
+	echo git config --global include.path ${CWD}/git/.gitconfig
+	git config --global include.path ${CWD}/git/.gitconfig
+	echo ln -sf ${CWD}/git/.gitignore_global ~/.gitignore_global
+	ln -sf ${CWD}/git/.gitignore_global ~/.gitignore_global
 }
 
 function update_vim()
 {
 	if [[ -f ~/.vimrc ]]; then
-		echo add "source `pwd`/vim/.vimrc" to ~/.vimrc
-		echo "source `pwd`/vim/.vimrc" >> ~/.vimrc
+		echo add "source ${CWD}/vim/.vimrc" to ~/.vimrc
+		echo "source ${CWD}/vim/.vimrc" >> ~/.vimrc
 	else
-		echo ln -sf `pwd`/vim/.vimrc ~/.vimrc
-		ln -sf `pwd`/vim/.vimrc ~/.vimrc
+		echo ln -sf ${CWD}/vim/.vimrc ~/.vimrc
+		ln -sf ${CWD}/vim/.vimrc ~/.vimrc
 	fi
 }
 
 function update_zsh()
 {
-	if [[ ! -d ~/.oh-my-zsh ]]; then
-		sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-	fi
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+	echo ". ${CWD}/zsh/.initrc" >> ${CWD}/zsh/.zshrc
+	echo ". ${CWD}/z/z.sh" >> ${CWD}/zsh/.zshrc
 	sed -i -- 's/robbyrussell/tjkirch_mod/' ~/.zshrc
 	source ~/.zshrc
 }
 
 # check environment status
-[[ -f ~/${flag_file} ]] && error_exit "All environment have been update."
+[[ -f ~/${FLAG_FILE} ]] && warning_exit "All environment have been update."
+which_system
 which git > /dev/null || error_exit "Please install git on your system."
 which zsh > /dev/null || error_exit "Please install zsh on your system."
 
