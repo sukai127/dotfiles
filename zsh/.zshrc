@@ -83,19 +83,20 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias ip=ifconfig | grep inet
 alias ap=ansible-playbook
 alias chrome='open -a "Google Chrome"'
 alias git=hub
 alias h=http
-alias mysql=/usr/local/script/mysql.sh
 alias psql='psql trailblazers'
 alias ssh_ctrip='ssh twer@10.202.5.24'
 alias subl='open -a "Sublime Text 2"'
 alias tomcat_shutdown=shutdown.sh
 alias tomcat_start=startup.sh
 alias ssh_aws='ssh 52.10.255.144'
-alias vpncon='/Users/ksu/Documents/twvpn/vpn connect '
-alias vpndis='/Users/ksu/Documents/twvpn/vpn disconnect '
+alias vpncon='~/Documents/twvpn/vpn connect '
+alias vpndis='~/Documents/twvpn/vpn disconnect '
+alias ssh_monitor='ssh twer@10.29.3.39'
 
 export NVM_DIR="/Users/ksu/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
