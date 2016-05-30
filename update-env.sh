@@ -45,7 +45,7 @@ function which_system()
 
 function have_been_updated()
 {
-	echo "Must not remove this file, only if you want crash system." >> ~/${FLAG_FILE}
+	echo "Do not remove this file, only if you want crash system." >> ~/${FLAG_FILE}
 }
 
 function update_git()
@@ -71,8 +71,8 @@ function update_zsh()
 {
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-	echo ". ${CWD}/zsh/.initrc" >> ${CWD}/zsh/.zshrc
-	echo ". ${CWD}/z/z.sh" >> ${CWD}/zsh/.zshrc
+	echo ". ${CWD}/z/z.sh" >> ${CWD}/zsh/.initrc
+	echo ". ${CWD}/zsh/.initrc" >> ~/.zshrc
 	sed -i -- 's/robbyrussell/tjkirch_mod/' ~/.zshrc
 	source ~/.zshrc
 }
