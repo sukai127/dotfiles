@@ -1,7 +1,7 @@
 #!/bin/bash
 
-FLAG_FILE=.have_been_updated.flag
 CWD=`(cd "$(dirname $0)" && pwd)`
+FLAG_FILE=${CWD}/.have_been_updated.flag
 
 function error_exit()
 {
