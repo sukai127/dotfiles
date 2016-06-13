@@ -94,8 +94,8 @@ alias subl='open -a "Sublime Text 2"'
 alias tomcat_shutdown=shutdown.sh
 alias tomcat_start=startup.sh
 alias ssh_aws='ssh 52.196.251.98'
-alias vpncon='~/Documents/twvpn/vpn connect '
-alias vpndis='~/Documents/twvpn/vpn disconnect '
+alias vc='~/Documents/twvpn/vpn connect '
+alias vd='~/Documents/twvpn/vpn disconnect '
 alias ssh_monitor='ssh twer@10.29.3.39'
 
 export NVM_DIR="/Users/ksu/.nvm"
