@@ -71,7 +71,6 @@ function update_zsh()
 {
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-	echo ". ${CWD}/z/z.sh" >> ${CWD}/zsh/.initrc
 	echo ". ${CWD}/zsh/.initrc" >> ~/.zshrc
 	sed -i -- 's/robbyrussell/tjkirch_mod/' ~/.zshrc
 	source ~/.zshrc
