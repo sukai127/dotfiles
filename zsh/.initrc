@@ -1,0 +1,11 @@
+export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
+
+alias ip=ifconfig | grep inet
+alias ap=ansible-playbook
+alias chrome='open -a "Google Chrome"'
+alias git=hub
+alias h=http
+alias ssh_ctrip='ssh twer@10.202.5.24'
+alias ssh_aws='ssh 52.196.251.98'
+alias vc='~/Documents/twvpn/vpn connect '
+alias vd='~/Documents/twvpn/vpn disconnect '

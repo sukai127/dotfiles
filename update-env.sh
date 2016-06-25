@@ -71,7 +71,11 @@ function update_zsh()
 {
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
+	# you can add your private config in this file
+	[[ ! -f ${CWD}/zsh/.initrc.private ]] && echo "" > ${CWD}/zsh/.initrc.private
+
 	echo ". ${CWD}/zsh/.initrc" >> ~/.zshrc
+	echo ". ${CWD}/zsh/.initrc.private" >> ~/.zshrc
 	sed -i -- 's/robbyrussell/tjkirch_mod/' ~/.zshrc
 	source ~/.zshrc
 }
