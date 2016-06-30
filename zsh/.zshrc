@@ -49,11 +49,10 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git z)
 
 # User configuration
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/maven/bin:/usr/local/tomcat/bin:/usr/local/ant/bin:/Applications/Postgres.app/Contents/Versions/latest/bin"
-export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -83,25 +82,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias ip=ifconfig | grep inet
-alias ap=ansible-playbook
-alias chrome='open -a "Google Chrome"'
-alias git=hub
-alias h=http
-alias psql='psql trailblazers'
-alias ssh_ctrip='ssh twer@10.202.5.24'
-alias subl='open -a "Sublime Text 2"'
-alias tomcat_shutdown=shutdown.sh
-alias tomcat_start=startup.sh
-alias ssh_aws='ssh 52.196.251.98'
-alias vc='~/Documents/twvpn/vpn connect '
-alias vd='~/Documents/twvpn/vpn disconnect '
-alias ssh_monitor='ssh twer@10.29.3.39'
-
 export NVM_DIR="/Users/ksu/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 
-
-source ~/.tools/z/z.sh
+source ~/.dotfiles/zsh/.initrc
 eval "$(thefuck --alias)"

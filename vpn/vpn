@@ -1,0 +1,8 @@
+#!/bin/zsh
+
+CWD=`(cd "$(dirname $0)" && pwd)`
+data_center=${2:-xdc}
+
+answers=$(sed 's/AUTHENTICATOR_CODE/'$(python ${CWD}/auth.py)'/g' ${CWD}/inputs.txt)
+answers=$(echo $answers | sed 's/AUTHENTICATOR_PASSWORD/'$(cat ${CWD}/authentication.password.private)'/g')
+echo $answers | /opt/cisco/anyconnect/bin/vpn -s $1 $data_center.vpn.thoughtworks.com
