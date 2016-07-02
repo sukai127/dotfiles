@@ -5,6 +5,7 @@ alias ap=ansible-playbook
 alias chrome='open -a "Google Chrome"'
 alias git=hub
 alias h=http
+alias tree='tree -N'
 alias mysql=mycli
 alias ssh_ctrip='ssh twer@10.202.5.24'
 alias ssh_aws='ssh 52.196.251.98'
