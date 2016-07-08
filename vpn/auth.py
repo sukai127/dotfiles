@@ -5,4 +5,9 @@ f = open(cwd + "/authentication.code.private", 'r')
 my_secret = f.read().replace('\n','')
 f.close()
 
-print str(otp.get_totp(my_secret))
+result = str(otp.get_totp(my_secret))
+
+while (len(result) < 6):
+	result = '0' + result
+
+print result
