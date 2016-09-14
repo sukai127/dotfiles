@@ -9,6 +9,8 @@
 	ap = add -p
 	s  = status -sb
 	st = status
+	sh = stash
+	shp = stash pop
 	ci = commit
 	cm = commit -m
 	cv = commit -v
