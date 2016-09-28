@@ -1,7 +1,7 @@
 export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
 export LESS="$LESS -c"
 
-alias ip=ifconfig | grep inet
+alias ip='ifconfig | grep inet'
 alias ap=ansible-playbook
 alias chrome='open -a "Google Chrome"'
 alias git=hub
@@ -12,3 +12,5 @@ alias ssh_ctrip='ssh twer@10.202.5.24'
 alias ssh_aws='ssh 52.196.251.98'
 alias vc='~/.dotfiles/vpn/vpn connect'
 alias vd='~/.dotfiles/vpn/vpn disconnect'
+alias pb='ssh twer@10.202.5.15'
+alias ci='ssh twer@10.202.5.14'
